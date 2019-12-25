@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  render() {
-      return <h1>Hello, makotoo!</h1>;
-  }
+    render() {
+        return (
+            <React.Fragment>
+                <label htmlFor="bar">bar</label>
+                <input type="text" onClick={() => {console.log("clicked.")}} onChange={() => {console.log("changed.")}}/>
+            </React.Fragment>
+        );
+    }
 }
 
 export default App;
