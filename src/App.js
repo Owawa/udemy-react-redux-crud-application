@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+/*******
 
 class App extends Component {
     render() {
@@ -10,5 +12,26 @@ class App extends Component {
         );
     }
 }
+*******/
+
+
+const App = () => {
+  return (
+    <React.Fragment>
+      <Mako />
+      <Mako />
+      <Mako />
+      <Mako />
+    </React.Fragment>
+  );
+}
+
+
+const Mako = () => {
+  return (
+    <div>makotooです</div>
+  );
+}
+
 
 export default App;
