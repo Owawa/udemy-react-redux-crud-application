@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/* Parent component */
 class App extends Component {
 
   constructor(props) {
@@ -16,13 +17,13 @@ class App extends Component {
     return (
       <React.Fragment>
         <CountButton addFunc={this.addCounter.bind(this)}/>
-        <p>{this.state.count}</p>
+        <Display count={this.state.count}/>
       </React.Fragment>
     );
   }
 }
 
-
+/* Child components */
 class CountButton extends Component {
   render () {
     return (
@@ -33,6 +34,18 @@ class CountButton extends Component {
 
 CountButton.propTypes = {
   addFunc: PropTypes.func
+}
+
+class Display extends Component {
+  render () {
+    return (
+      <p>{this.props.count}</p>
+    );
+  }
+}
+
+Display.propTypes = {
+  count: PropTypes.number
 }
 
 export default App;
