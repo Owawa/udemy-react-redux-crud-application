@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const App = () => (<Counter></Counter>);
+class App extends Component {
 
-
-class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = { count : 0 };
   }
 
-  handlePlusButton = () => {
+  addCounter() {
     this.setState({ count : this.state.count + 1 });
   }
 
-  handleMinusButton = () => {
-    this.setState({ count : this.state.count - 1 });
-  }
-
-  render () {
-    console.log(this.state);
+  render() {
     return (
       <React.Fragment>
-        <div>count: { this.state.count }</div>
-        <button onClick={this.handlePlusButton}>+1</button>
-        <button onClick={this.handleMinusButton}>-1</button>
+        <CountButton addFunc={this.addCounter.bind(this)}/>
+        <p>{this.state.count}</p>
       </React.Fragment>
     );
   }
+}
+
+
+class CountButton extends Component {
+  render () {
+    return (
+        <button onClick={this.props.addFunc}>+1</button>
+    );
+  }
+}
+
+CountButton.propTypes = {
+  addFunc: PropTypes.func
 }
 
 export default App;
